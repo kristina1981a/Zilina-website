@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Žilina</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="icon" href="img/1200px-Coat_of_Arms_of_Žilina.svg.png">
+    <link rel="stylesheet" type="text/css" href="css/css file.css">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap');
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #f3f4f6;
+        }
+
+        /* Lightbox styles */
+        .lightbox-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.8);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            z-index: 50;
+            cursor: pointer;
+        }
+
+        .lightbox-content {
+            position: relative;
+            max-width: 90%;
+            max-height: 90%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .lightbox-content img {
+            max-width: 100%;
+            max-height: 100%;
+            object-fit: contain;
+            border-radius: 0.5rem;
+            box-shadow: 0 10px 15px rgba(0, 0, 0, 0.3);
+        }
+
+        .lightbox-close {
+            position: absolute;
+            top: -2.5rem;
+            right: -2.5rem;
+            background: none;
+            border: none;
+            color: white;
+            font-size: 2rem;
+            font-weight: bold;
+            cursor: pointer;
+            line-height: 1;
+        }
+
+        .lightbox-caption {
+            color: white;
+            margin-top: 1rem;
+            font-size: 1.25rem;
+            text-shadow: 0 1px 2px rgba(0, 0, 0, 0.5);
+        }
+
+        /* Indicate clickable images */
+        .lightbox-trigger {
+            cursor: pointer;
+            transition: transform 0.2s ease-in-out;
+        }
+        .lightbox-trigger:hover {
+            transform: scale(1.02);
+        }
+
+    </style>
+</head>
+<body>
+    <!-- header elements -->
+    <!-- The header has been made bigger by increasing the padding -->
+    <header class="bg-fuchsia-600 text-white p-8 shadow-lg rounded-b-xl">
+        <div class="container mx-auto flex flex-col items-center">
+            <!-- The image is now smaller and centered -->
+            <img class="mb-6 w-24" src="img/1200px-Coat_of_Arms_of_Žilina.svg.png">
+            <!-- The title is now bigger and below the image -->
+            <h1 class="text-4xl font-bold mb-6 text-center">Žilina</h1>
+            <nav>
+                <ul class="flex justify-center space-x-4">
+                    <!-- Home Link -->
+                    <li>
+                        <a href="index.html" class="px-4 py-2 rounded-lg bg-fuchsia-500 hover:bg-fuchsia-700 transition-colors duration-300">Home</a>
+                    </li>
+                    <!-- Page 2 Link - now linked to famous-sites.html -->
+                    <li>
+                        <a href="famous-sites.html" class="px-4 py-2 rounded-lg bg-fuchsia-500 hover:bg-fuchsia-700 transition-colors duration-300">Famous Sites</a>
+                    </li>
+                    <!-- Page 3 Link -->
+                    <li>
+                        <a href="things to do.html" class="px-4 py-2 rounded-lg bg-fuchsia-500 hover:bg-fuchsia-700 transition-colors duration-300">Things to do in Žilina</a>
+                    </li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- main element -->
+    <main class="container mx-auto p-8">
+        <div class="text-center">
+            <h2 class="mt-8 text-2xl font-bold mb-4">Famous Sites</h2>
+            <p>Žilina, Slovakia, boasts several notable sites including Budatín Castle, Stanica Žilina-Záriečie, and the historic town center. Bojnice Castle, though not in Žilina itself, is a popular day trip destination from the city. The region also offers opportunities for hiking and cycling, with many hidden gems to discover. </p>
+        </div>
+
+        <!-- The images are now in a responsive grid with a larger gap from the paragraph -->
+        <div class="mt-8 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+            <!-- Added lightbox-trigger class to make the div clickable -->
+            <div class="rounded-lg overflow-hidden shadow-lg lightbox-trigger">
+                <img class="w-full h-auto" src="img/marianske-square.jpg" alt="Mariánske námestie">
+                <p class="caption mt-2 text-center p-2">Mariánske námestie (Marian Square)</p>
+            </div>
+            <div class="rounded-lg overflow-hidden shadow-lg lightbox-trigger">
+                <img class="w-full h-auto" src="img/budatin castle.jpg" alt="Budatín Castle">
+                <p class="caption mt-2 text-center p-2">Budatín Castle</p>
+            </div>
+            <div class="rounded-lg overflow-hidden shadow-lg lightbox-trigger">
+                <img class="w-full h-auto" src="img/lietava.jpg" alt="Lietava Castle">
+                <p class="caption mt-2 text-center p-2">Lietava Castle</p>
+            </div>
+            <div class="rounded-lg overflow-hidden shadow-lg lightbox-trigger">
+                <img class="w-full h-auto" src="img/cicmany.jpg" alt="Cicmany">
+                <p class="caption mt-2 text-center p-2">Cicmany</p>
+            </div>
+            <div class="rounded-lg overflow-hidden shadow-lg lightbox-trigger">
+                <img class="w-full h-auto" src="img/zilina-catacomb.jpg">
+                <p class="caption mt-2 text-center p-2">Catacomb</p>
+            </div>
+            <div class="rounded-lg overflow-hidden shadow-lg lightbox-trigger">
+                <img class="w-full h-auto" src="img/povazska-galeria-umenia.jpg">
+                <p class="caption mt-2 text-center p-2">Povazska galeria umenia</p>
+            </div>
+        </div>
+
+    </main>
+
+    <!-- Footer element -->
+    <footer class="bg-fuchsia-600 text-white p-4 mt-8 rounded-t-xl text-center">
+        <p>This site is created as test site</a>. &copy; Kristina</p>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const lightboxTriggers = document.querySelectorAll('.lightbox-trigger');
+            
+            // Loop through each element that should trigger the lightbox
+            lightboxTriggers.forEach(trigger => {
+                trigger.addEventListener('click', () => {
+                    const imgSrc = trigger.querySelector('img').src;
+                    const captionText = trigger.querySelector('.caption').innerText;
+
+                    // Create the lightbox overlay element
+                    const lightboxOverlay = document.createElement('div');
+                    lightboxOverlay.classList.add('lightbox-overlay');
+
+                    // Create the content container
+                    const lightboxContent = document.createElement('div');
+                    lightboxContent.classList.add('lightbox-content');
+
+                    // Create the image element
+                    const imgElement = document.createElement('img');
+                    imgElement.src = imgSrc;
+                    imgElement.alt = captionText;
+
+                    // Create the caption element
+                    const captionElement = document.createElement('p');
+                    captionElement.classList.add('lightbox-caption');
+                    captionElement.innerText = captionText;
+
+                    // Create the close button
+                    const closeButton = document.createElement('button');
+                    closeButton.classList.add('lightbox-close');
+                    closeButton.innerText = '×';
+                    
+                    // Append elements to the content container
+                    lightboxContent.appendChild(imgElement);
+                    lightboxContent.appendChild(captionElement);
+                    lightboxContent.appendChild(closeButton);
+
+                    // Append content container to the overlay
+                    lightboxOverlay.appendChild(lightboxContent);
+
+                    // Add the overlay to the body
+                    document.body.appendChild(lightboxOverlay);
+
+                    // Function to close the lightbox
+                    const closeLightbox = () => {
+                        document.body.removeChild(lightboxOverlay);
+                    };
+
+                    // Add event listeners for closing the lightbox
+                    closeButton.addEventListener('click', closeLightbox);
+                    lightboxOverlay.addEventListener('click', (e) => {
+                        // Only close if the click is on the overlay itself, not the image
+                        if (e.target === lightboxOverlay) {
+                            closeLightbox();
+                        }
+                    });
+                });
+            });
+        });
+    </script>
+</body>
+</html>

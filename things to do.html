@@ -1,0 +1,323 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Žilina</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="icon" href="img/1200px-Coat_of_Arms_of_Žilina.svg.png">
+    <link rel="stylesheet" type="text/css" href="css/css file.css">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap');
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #f3f4f6;
+        }
+        /* Custom carousel styling */
+        .carousel-container {
+            position: relative;
+            overflow: hidden;
+            width: 100%;
+        }
+        .carousel-slide {
+            display: none;
+            position: relative;
+            /* Added for consistent height */
+            padding-bottom: 56.25%; /* 16:9 Aspect Ratio */
+        }
+        .carousel-slide.active {
+            display: block;
+        }
+        .carousel-slide img {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            cursor: pointer; /* Add pointer cursor to show it's clickable */
+        }
+        .carousel-button {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background-color: rgba(0, 0, 0, 0.5);
+            color: white;
+            border: none;
+            padding: 1rem;
+            cursor: pointer;
+            z-index: 10;
+            user-select: none;
+            border-radius: 9999px;
+            transition: background-color 0.3s;
+        }
+        .carousel-button:hover {
+            background-color: rgba(0, 0, 0, 0.8);
+        }
+        .carousel-prev {
+            left: 1rem;
+        }
+        .carousel-next {
+            right: 1rem;
+        }
+        .carousel-caption {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background-color: rgba(0, 0, 0, 0.6);
+            color: white;
+            padding: 1rem;
+            text-align: left;
+            border-bottom-left-radius: 0.5rem;
+            border-bottom-right-radius: 0.5rem;
+        }
+
+        /* Lightbox styling */
+        .lightbox-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.9);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            z-index: 50;
+            visibility: hidden;
+            opacity: 0;
+            transition: opacity 0.3s, visibility 0s 0.3s;
+        }
+
+        .lightbox-overlay.show {
+            visibility: visible;
+            opacity: 1;
+            transition: opacity 0.3s;
+        }
+
+        .lightbox-content {
+            position: relative;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            /* Flex-grow allows the content to take up available space */
+            flex-grow: 1; 
+            max-width: 90%;
+            max-height: 90%;
+        }
+
+        .lightbox-content img {
+            display: block;
+            max-width: 90vw; /* Set a maximum width based on viewport width */
+            max-height: 75vh; /* Set a maximum height based on viewport height */
+            object-fit: contain; /* Ensures the entire image is visible within the container */
+            height: auto;
+            width: auto;
+        }
+
+        .lightbox-caption {
+            color: white;
+            background-color: rgba(0, 0, 0, 0.6);
+            padding: 0.5rem 1rem;
+            width: 100%;
+            text-align: center;
+            font-size: 1.25rem;
+            border-bottom-left-radius: 0.5rem;
+            border-bottom-right-radius: 0.5rem;
+            flex-shrink: 0; /* Prevents caption from shrinking */
+        }
+
+        .lightbox-close {
+            position: absolute;
+            top: 1rem;
+            right: 2rem;
+            font-size: 2.5rem;
+            color: white;
+            cursor: pointer;
+            line-height: 1;
+        }
+    </style>
+</head>
+<body>
+    <!-- header elements -->
+    <!-- The header has been made bigger by increasing the padding -->
+    <header class="bg-fuchsia-600 text-white p-8 shadow-lg rounded-b-xl">
+        <div class="container mx-auto flex flex-col items-center">
+            <!-- The image is now smaller and centered -->
+            <img class="mb-6 w-24" src="img/1200px-Coat_of_Arms_of_Žilina.svg.png">
+            <!-- The title is now bigger and below the image -->
+            <h1 class="text-4xl font-bold mb-6 text-center">Žilina</h1>
+            <nav>
+                <nav>
+                <ul class="flex justify-center space-x-4">
+                    <!-- Home Link -->
+                    <li>
+                        <a href="index.html" class="px-4 py-2 rounded-lg bg-fuchsia-500 hover:bg-fuchsia-700 transition-colors duration-300">Home</a>
+                    </li>
+                    <!-- Page 2 Link - now linked to famous-sites.html -->
+                    <li>
+                        <a href="Famous sites.html" class="px-4 py-2 rounded-lg bg-fuchsia-500 hover:bg-fuchsia-700 transition-colors duration-300">Famous Sites</a>
+                    </li>
+                    <!-- Page 3 Link -->
+                    <li>
+                        <a href="things to do.html" class="px-4 py-2 rounded-lg bg-fuchsia-500 hover:bg-fuchsia-700 transition-colors duration-300">Things to do in Žilina</a>
+                    </li>
+                </ul>
+            </nav>
+            </nav>
+        </div>
+    </header>
+
+    <!-- main element -->
+    <main class="container mx-auto p-8">
+        <div class="text-center">
+            <h2 class="mt-8 text-2xl font-bold mb-4">Things to do in Žilina</h2>
+            <p>Žilina offers a variety of attractions and activities. Popular options include visiting Budatín Castle and exploring the historic Marianske Square. For those interested in culture and history, the Holy Trinity Cathedral and the Považské Múzeum (a regional museum) are worth visiting. Nature lovers can enjoy the surrounding region with its castles and hiking opportunities.</p>
+        </div>
+
+        <!-- This section now contains the list and carousel side-by-side -->
+        <div class="mt-16 flex flex-col md:flex-row gap-8">
+            <div class="w-full md:w-1/2">
+                <h3 class="text-xl font-bold mb-2">Here's a more detailed look at some specific things to do:</h3>
+                <ul class="mt-4 list-disc list-inside space-y-2">
+                    <li>Budatín Castle: A well-preserved castle with a museum and beautiful grounds.</li>
+                    <li>Marianske Square: The main square in Zilina, offering a glimpse into the city's architecture and history.</li>
+                    <li>Holy Trinity Cathedral: A notable church in the city center.</li>
+                    <li>Považské Múzeum: The regional museum, showcasing the history and culture of the area.</li>
+                    <li>Burian Tower: A historical Renaissance tower offering views of the city.</li>
+                    <li>Lietava Castle: Ruins of a medieval castle with scenic views.</li>
+                    <li>Stanica Žilina-Záriečie: A cultural center and former train station, now hosting events and exhibitions.</li>
+                </ul>
+            </div>
+            
+            <div class="w-full md:w-1/2 max-w-2xl mx-auto rounded-lg shadow-lg">
+                <div id="image-carousel" class="carousel-container">
+                    <div class="carousel-slide active">
+                        <img class="w-full h-auto rounded-t-lg lightbox-trigger" data-caption="City Theatre of Žilina" src="img/city-theater-of-zilina.jpg" alt="City Theatre of Žilina">
+                        <p class="carousel-caption">City Theatre of Žilina</p>
+                    </div>
+                    <div class="carousel-slide">
+                        <img class="w-full h-auto rounded-t-lg lightbox-trigger" data-caption="Stanica Žilina-Záriečie" src="img/stanica-zilina-zariecie.jpg" alt="Stanica Žilina-Záriečie">
+                        <p class="carousel-caption">Stanica Žilina-Záriečie</p>
+                    </div>
+                    <div class="carousel-slide">
+                        <img class="w-full h-auto rounded-t-lg lightbox-trigger" data-caption="Mala Fatra mountains" src="img/9e.jpg" alt="Mala Fatra mountains">
+                        <p class="carousel-caption">Mala Fatra mountains</p>
+                    </div>
+    
+                    <button class="carousel-button carousel-prev">←</button>
+                    <button class="carousel-button carousel-next">→</button>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Section for Orava Castle with text next to it -->
+        <div class="mt-16 flex flex-col md:flex-row items-center md:items-start gap-8">
+            <div class="w-full md:w-1/2 rounded-lg overflow-hidden shadow-lg">
+                <img class="w-full h-auto lightbox-trigger" data-caption="Orava Castle" src="img/autor-michal-pisny.jpg" alt="Orava Castle">
+                <p class="caption mt-2 p-2">Orava Castle</p>
+            </div>
+            <div class="w-full md:w-1/2">
+                <h3 class="text-xl font-bold mb-2">Outdoor Activities and Nature</h3>
+                <p>The Žilina region is known for its opportunities for outdoor recreation, with 20 hidden gems to explore. Consider visiting castles like Strečno, Starý hrad, Hričovský hrad, Súľovský hrad, Likava, or Liptovský hrad. Oravský hrad Castle: Located in the region, this castle is considered one of the most beautiful in the area, according to Slovakia.travel.</p>
+            </div>
+        </div>
+
+    </main>
+
+    <!-- Footer element -->
+    <footer class="bg-fuchsia-600 text-white p-4 mt-8 rounded-t-xl text-center">
+        <p>This site is created as test site</a>. &copy; Kristina</p>
+    </footer>
+
+    <!-- Lightbox overlay -->
+    <div id="lightbox-overlay" class="lightbox-overlay">
+        <span class="lightbox-close">&times;</span>
+        <div class="lightbox-content">
+            <img id="lightbox-img" src="" alt="Lightbox image">
+            <p id="lightbox-caption" class="lightbox-caption"></p>
+        </div>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const carousel = document.getElementById('image-carousel');
+            if (carousel) {
+                const slides = carousel.querySelectorAll('.carousel-slide');
+                const prevButton = carousel.querySelector('.carousel-prev');
+                const nextButton = carousel.querySelector('.carousel-next');
+                let currentSlide = 0;
+
+                function showSlide(index) {
+                    slides.forEach(slide => slide.classList.remove('active'));
+                    if (index >= slides.length) {
+                        currentSlide = 0;
+                    } else if (index < 0) {
+                        currentSlide = slides.length - 1;
+                    } else {
+                        currentSlide = index;
+                    }
+                    slides[currentSlide].classList.add('active');
+                }
+
+                nextButton.addEventListener('click', () => {
+                    showSlide(currentSlide + 1);
+                });
+                prevButton.addEventListener('click', () => {
+                    showSlide(currentSlide - 1);
+                });
+
+                showSlide(currentSlide);
+            }
+
+            // Lightbox functionality
+            const lightboxOverlay = document.getElementById('lightbox-overlay');
+            const lightboxImg = document.getElementById('lightbox-img');
+            const lightboxCaption = document.getElementById('lightbox-caption');
+            const lightboxClose = document.querySelector('.lightbox-close');
+            const lightboxTriggers = document.querySelectorAll('.lightbox-trigger');
+
+            // Function to show the lightbox
+            function showLightbox(src, alt, caption) {
+                lightboxImg.src = src;
+                lightboxImg.alt = alt;
+                lightboxCaption.textContent = caption; // Set the caption text
+                lightboxOverlay.classList.add('show');
+            }
+
+            // Function to hide the lightbox
+            function hideLightbox() {
+                lightboxOverlay.classList.remove('show');
+            }
+
+            // Event listeners for opening the lightbox
+            lightboxTriggers.forEach(image => {
+                image.addEventListener('click', () => {
+                    const caption = image.dataset.caption || ''; // Get caption from data attribute
+                    showLightbox(image.src, image.alt, caption);
+                });
+            });
+
+            // Event listener for closing the lightbox
+            lightboxClose.addEventListener('click', hideLightbox);
+
+            // Close lightbox when clicking outside the image
+            lightboxOverlay.addEventListener('click', (event) => {
+                if (event.target === lightboxOverlay) {
+                    hideLightbox();
+                }
+            });
+
+            // Close lightbox with the Escape key
+            document.addEventListener('keydown', (event) => {
+                if (event.key === 'Escape' && lightboxOverlay.classList.contains('show')) {
+                    hideLightbox();
+                }
+            });
+        });
+    </script>
+</body>
+</html>
