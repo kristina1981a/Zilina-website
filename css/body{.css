@@ -1,0 +1,169 @@
+/*body {
+    margin: 0;
+    font-family: 'Inter', sans-serif;
+    font-size: 16px;
+    line-height: 1.6;
+    background-color: #f3f4f6;
+    color: #374151;
+}
+
+header {
+    background-color: #d946ef;
+    text-align: center;
+    padding: 1.5rem 1rem;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+    border-bottom-left-radius: 0.75rem;
+    border-bottom-right-radius: 0.75rem;
+    color: white;
+}
+
+header h1 {
+    color: white;
+    font-size: 2rem;
+    font-weight: 700;
+    margin-top: 0;
+}
+
+header img {
+    width: 6rem;
+    margin-bottom: 1rem;
+}
+
+nav ul {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    gap: 0.5rem;
+}
+
+nav ul li a {
+    display: block;
+    padding: 0.5rem 1rem;
+    border-radius: 0.5rem;
+    background-color: #c026d3;
+    color: white;
+    text-decoration: none;
+    transition: background-color 0.3s ease;
+}
+
+nav ul li a:hover {
+    background-color: #a21caf;
+}
+
+main {
+    max-width: 1024px;
+    margin: 0 auto;
+    padding: 1rem;
+}
+
+h2 {
+    font-family: 'Inter', sans-serif;
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: #4b5563;
+    margin-top: 2rem;
+    margin-bottom: 1rem;
+}
+
+p {
+    font-size: 1rem;
+    line-height: 1.75;
+}
+
+main img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 0.5rem;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+}
+
+.gallery {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.gallery img {
+    width: 100%;
+}
+
+footer {
+    background-color: #d946ef;
+    text-align: center;
+    color: white;
+    padding: 1.5rem 1rem;
+    margin-top: 2rem;
+    border-top-left-radius: 0.75rem;
+    border-top-right-radius: 0.75rem;
+}
+
+@media (min-width: 640px) {
+    body {
+        font-size: 18px;
+    }
+    
+    header {
+        padding: 2rem 1.5rem;
+    }
+
+    header h1 {
+        font-size: 2.5rem;
+    }
+
+    header img {
+        width: 8rem;
+    }
+
+    nav ul {
+        flex-direction: row;
+        justify-content: center;
+        gap: 1rem;
+    }
+
+    main {
+        padding: 2rem;
+    }
+
+    h2 {
+        font-size: 2rem;
+    }
+
+    .gallery {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 1.5rem;
+    }
+    
+    .gallery img {
+        width: 100%;
+    }
+}
+
+@media (min-width: 1024px) {
+    header {
+        padding: 3rem 2rem;
+    }
+    
+    header h1 {
+        font-size: 3rem;
+    }
+
+    header img {
+        width: 10rem;
+    }
+
+    main {
+        padding: 2rem 4rem;
+    }
+
+    h2 {
+        font-size: 2.5rem;
+    }
+    
+    .gallery {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}

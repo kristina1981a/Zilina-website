@@ -1,0 +1,185 @@
+/*
+    This CSS file has been updated to be fully mobile-responsive using CSS media queries.
+    Styles are defined for a mobile-first approach, and then modified for larger screens.
+*/
+
+/* Base styles for all screen sizes (mobile-first) */
+body {
+    margin: 0;
+    font-family: 'Inter', sans-serif;
+    font-size: 16px; /* A good base size for mobile */
+    line-height: 1.6;
+    background-color: #f3f4f6; /* Tailwind's gray-100 */
+    color: #374151; /* Tailwind's gray-700 */
+}
+
+/* Header styles */
+header {
+    background-color: #d946ef; /* Tailwind's fuchsia-600 */
+    text-align: center;
+    padding: 1.5rem 1rem; /* Smaller padding for mobile */
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+    border-bottom-left-radius: 0.75rem;
+    border-bottom-right-radius: 0.75rem;
+    color: white;
+}
+
+header h1 {
+    color: white;
+    font-size: 2rem; /* Mobile font size */
+    font-weight: 700;
+    margin-top: 0;
+}
+
+header img {
+    width: 6rem; /* Mobile logo size */
+    margin-bottom: 1rem;
+}
+
+/* Navigation styles */
+nav ul {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    gap: 0.5rem; /* Space between links on mobile */
+}
+
+nav ul li a {
+    display: block;
+    padding: 0.5rem 1rem;
+    border-radius: 0.5rem;
+    background-color: #c026d3; /* Tailwind's fuchsia-700 */
+    color: white;
+    text-decoration: none;
+    transition: background-color 0.3s ease;
+}
+
+nav ul li a:hover {
+    background-color: #a21caf; /* A darker fuchsia on hover */
+}
+
+/* Main content styles */
+main {
+    max-width: 1024px; /* Max width for large screens */
+    margin: 0 auto;
+    padding: 1rem; /* Smaller padding for mobile */
+}
+
+h2 {
+    font-family: 'Inter', sans-serif;
+    font-size: 1.5rem; /* Mobile heading size */
+    font-weight: 700;
+    color: #4b5563; /* A nice dark gray */
+    margin-top: 2rem;
+    margin-bottom: 1rem;
+}
+
+p {
+    font-size: 1rem;
+    line-height: 1.75;
+}
+
+main img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 0.5rem;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+}
+
+/* Image Gallery styles for the Famous Sites page */
+.gallery {
+    display: flex;
+    flex-direction: column; /* Stack images vertically on mobile */
+    gap: 1rem;
+}
+
+.gallery img {
+    width: 100%; /* Full width on mobile */
+}
+
+/* Footer styles */
+footer {
+    background-color: #d946ef; /* Tailwind's fuchsia-600 */
+    text-align: center;
+    color: white;
+    padding: 1.5rem 1rem;
+    margin-top: 2rem;
+    border-top-left-radius: 0.75rem;
+    border-top-right-radius: 0.75rem;
+}
+
+/*
+    Media Queries for larger screens (e.g., tablets and desktops)
+*/
+@media (min-width: 640px) { /* Small screens, like tablets */
+    body {
+        font-size: 18px;
+    }
+    
+    header {
+        padding: 2rem 1.5rem;
+    }
+
+    header h1 {
+        font-size: 2.5rem;
+    }
+
+    header img {
+        width: 8rem;
+    }
+
+    nav ul {
+        flex-direction: row;
+        justify-content: center;
+        gap: 1rem;
+    }
+
+    main {
+        padding: 2rem;
+    }
+
+    h2 {
+        font-size: 2rem;
+    }
+
+    /* Gallery for tablets and larger */
+    .gallery {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr); /* 2 columns */
+        gap: 1.5rem;
+    }
+    
+    .gallery img {
+        width: 100%;
+    }
+}
+
+@media (min-width: 1024px) { /* Large screens, like desktops */
+    header {
+        padding: 3rem 2rem;
+    }
+    
+    header h1 {
+        font-size: 3rem;
+    }
+
+    header img {
+        width: 10rem;
+    }
+
+    main {
+        padding: 2rem 4rem;
+    }
+
+    h2 {
+        font-size: 2.5rem;
+    }
+    
+    /* Gallery for desktops and larger */
+    .gallery {
+        grid-template-columns: repeat(3, 1fr); /* 3 columns */
+    }
+}
